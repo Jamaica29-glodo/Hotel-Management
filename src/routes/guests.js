@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { getAllGuests, createGuest } = require('../controllers/guestsController');
+const { getAllGuests, createGuest, updateGuest, deleteGuest } = require('../controllers/guestsController');
 
+// GET all guests
 router.get('/', getAllGuests);
+
+// POST new guest
 router.post('/', createGuest);
-router.put('/:id', updateRoom);
-router.delete('/:id', deleteRoom);
+
+// PUT update guest by ID
+router.put('/:id', updateGuest);
+
+// DELETE guest by ID
+router.delete('/:id', deleteGuest);
 
 module.exports = router;
