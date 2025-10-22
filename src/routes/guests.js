@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { getGuests, getGuest, createGuest, updateGuest, deleteGuest, getGuestBookings } = require('../controllers/guestController');
+const { getAllGuests, createGuest } = require('../controllers/guestsController');
 
-router.route('/').get(getGuests).post(createGuest);
-router.route('/:id').get(getGuest).put(updateGuest).delete(deleteGuest);
-router.route('/:id/bookings').get(getGuestBookings);
+router.get('/', getAllGuests);
+router.post('/', createGuest);
 
 module.exports = router;
