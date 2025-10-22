@@ -4,8 +4,71 @@
 A full RESTful API for hotel administration created with Node.js, Express, and MongoDB. This API supports full CRUD operations for managing rooms, guests, and bookings, as well as sophisticated relationship capabilities like room availability checking, double-booking prevention, and automatic room status monitoring.
 </p>
 
-# BASE URL
-https://hotel-management-qoqh.onrender.com
+# 🌐 Base URL
+https://hotel-management-4-hwal.onrender.com
+
+
+
+## 📁 Endpoints
+
+| Resource     | Method | Endpoint            | Description                |
+| ------------ | ------ | ------------------- | -------------------------- |
+| **Rooms**    | GET    | `/api/rooms`        | Get all rooms              |
+|              | POST   | `/api/rooms`        | Add a new room             |
+|              | PUT    | `/api/rooms/:id`    | Update an existing room    |
+|              | DELETE | `/api/rooms/:id`    | Delete a room              |
+| **Guests**   | GET    | `/api/guests`       | Get all guests             |
+|              | POST   | `/api/guests`       | Add a new guest            |
+|              | PUT    | `/api/guests/:id`   | Update an existing guest   |
+|              | DELETE | `/api/guests/:id`   | Delete a guest             |
+| **Bookings** | GET    | `/api/bookings`     | Get all bookings           |
+|              | POST   | `/api/bookings`     | Add a new booking          |
+|              | PUT    | `/api/bookings/:id` | Update an existing booking |
+|              | DELETE | `/api/bookings/:id` | Delete a booking           |
+
+
+# 🧪 Sample Requests
+## ➤ Get All Rooms
+GET https://hotel-management-3-eooh.onrender.com/api/rooms
+
+## ➤ Create New Rooms
+
+POST https://hotel-management-3-eooh.onrender.com/api/rooms
+Body:
+
+{
+  "number": 101,
+  "type": "Single",
+  "price": 1500,
+  "status": "available"
+}
+
+## ➤ Create New Guest
+
+POST https://hotel-management-3-eooh.onrender.com/api/guests
+Body:
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "09123456789"
+}
+
+## ➤ Create New Booking
+
+POST https://hotel-management-3-eooh.onrender.com/api/bookings
+
+Body:
+{
+  "guestId": "6727d823cf8b3a3b4a9cd3e1",
+  "roomId": "6727d831cf8b3a3b4a9cd3f5",
+  "checkIn": "2025-10-23",
+  "checkOut": "2025-10-25",
+  "status": "booked"
+}
+
+
+
 <hr>
 
 <h2>Features</h2>
@@ -46,85 +109,9 @@ https://hotel-management-qoqh.onrender.com
 
 <hr>
 
-<h2>Installation</h2>
-
-<h3>Prerequisites</h3>
-<ul>
-  <li><b>Node.js</b> (v14 or higher) - <a href="https://nodejs.org/">Download here</a></li>
-  <li><b>MongoDB Atlas Account</b> (free tier) - <a href="https://www.mongodb.com/cloud/atlas/register">Sign up here</a></li>
-  <li><b>Postman</b> (optional, for testing) - <a href="https://www.postman.com/downloads/">Download here</a></li>
-</ul>
-
-<h3>Step 1: Clone or Download the Project</h3>
-
-<pre>
-# If using Git
-git clone &lt;your-repository-url&gt;
-cd hotel-management-api
-
-# Or download and extract the ZIP file
-</pre>
-
-<h3>Step 2: Install Dependencies</h3>
-
-<pre>
-npm install
-</pre>
-
-<p>This will install all required packages: express, mongoose, dotenv, cors, morgan, and nodemon.</p>
-
-<h3>Step 3: Set Up MongoDB Atlas</h3>
-
-<ol>
-  <li><b>Create a MongoDB Atlas Account</b>
-    <ul>
-      <li>Go to <a href="https://www.mongodb.com/cloud/atlas/register">MongoDB Atlas</a></li>
-      <li>Sign up for a free account</li>
-    </ul>
-  </li>
-  <li><b>Create a New Cluster</b>
-    <ul>
-      <li>Click "Build a Database"</li>
-      <li>Choose "M0 FREE" tier</li>
-      <li>Select a cloud provider and region (choose closest to you)</li>
-      <li>Click "Create"</li>
-    </ul>
-  </li>
-  <li><b>Create Database User</b>
-    <ul>
-      <li>Go to "Database Access" (left sidebar)</li>
-      <li>Click "Add New Database User"</li>
-      <li>Username: <code>hotelAdmin</code> (or your choice)</li>
-      <li>Password: Generate a strong password (SAVE THIS!)</li>
-      <li>Database User Privileges: "Atlas admin"</li>
-      <li>Click "Add User"</li>
-    </ul>
-  </li>
-  <li><b>Configure Network Access</b>
-    <ul>
-      <li>Go to "Network Access" (left sidebar)</li>
-      <li>Click "Add IP Address"</li>
-      <li>Click "Allow Access from Anywhere" (0.0.0.0/0)</li>
-      <li>Click "Confirm"</li>
-    </ul>
-  </li>
-  <li><b>Get Connection String</b>
-    <ul>
-      <li>Go to "Database" (left sidebar)</li>
-      <li>Click "Connect" on your cluster</li>
-      <li>Choose "Connect your application"</li>
-      <li>Copy the connection string</li>
-    </ul>
-  </li>
-</ol>
-
-<h3>Step 4: Configure Environment Variables</h3>
-
-<p>Create a <code>.env</code> file in the root directory:</p>
-
 <pre>
 PORT=3000
-MONGO_URI=mongodb+srv://hotelAdmin:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/hotel-management?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://management:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/hotel-management?retryWrites=true&w=majority
 NODE_ENV=development
 </pre>
 
@@ -135,219 +122,8 @@ NODE_ENV=development
   <li>Add <code>/hotel-management</code> before the <code>?</code> to specify the database name</li>
 </ul>
 
-<h3>Step 5: Seed the Database</h3>
-
-<p>Populate the database with sample data:</p>
-
-<pre>
-npm run seed
-</pre>
-
-<p>You should see:</p>
-
-<pre>
-MongoDB Connected: cluster0-xxxxx.mongodb.net
-✅ Data seeded successfully!
-   - 8 rooms created
-   - 5 guests created
-   - 3 bookings created
-</pre>
 
 <hr>
-
-<h2>How to Run</h2>
-
-<h3>Development Mode (with auto-restart):</h3>
-
-<pre>
-npm run dev
-</pre>
-
-<h3>Production Mode:</h3>
-
-<pre>
-npm start
-</pre>
-
-<p>You should see:</p>
-
-<pre>
-Server running in development mode on port 3000
-MongoDB Connected: cluster0-xxxxx.mongodb.net
-</pre>
-
-<p><b>✅ Your API is now running at:</b> <code>http://localhost:3000</code></p>
-
-<hr>
-
-<h2>API Endpoints</h2>
-
-<h3>Base URL</h3>
-<pre>http://localhost:3000</pre>
-
-<h3>Root Endpoint</h3>
-
-<table>
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/</code></td>
-    <td>API information and available endpoints</td>
-  </tr>
-</table>
-
-<h3>Rooms Endpoints</h3>
-
-<table>
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/rooms</code></td>
-    <td>Get all rooms (with pagination)</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/rooms?page=1&limit=10</code></td>
-    <td>Get rooms with pagination</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/rooms?status=available</code></td>
-    <td>Filter rooms by status</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/rooms?type=suite</code></td>
-    <td>Filter rooms by type</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/rooms/available?checkIn=YYYY-MM-DD&checkOut=YYYY-MM-DD</code></td>
-    <td>Get available rooms for specific dates</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/rooms/:id</code></td>
-    <td>Get single room by ID</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/rooms/:id/bookings</code></td>
-    <td>Get booking history for a room</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td><code>/api/rooms</code></td>
-    <td>Create new room</td>
-  </tr>
-  <tr>
-    <td>PUT</td>
-    <td><code>/api/rooms/:id</code></td>
-    <td>Update room</td>
-  </tr>
-  <tr>
-    <td>DELETE</td>
-    <td><code>/api/rooms/:id</code></td>
-    <td>Delete room</td>
-  </tr>
-</table>
-
-<h3>Guests Endpoints</h3>
-
-<table>
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/guests</code></td>
-    <td>Get all guests (with pagination)</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/guests?search=john</code></td>
-    <td>Search guests by name/email/phone</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/guests/:id</code></td>
-    <td>Get single guest by ID</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/guests/:id/bookings</code></td>
-    <td>Get all bookings for a guest</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td><code>/api/guests</code></td>
-    <td>Create new guest</td>
-  </tr>
-  <tr>
-    <td>PUT</td>
-    <td><code>/api/guests/:id</code></td>
-    <td>Update guest</td>
-  </tr>
-  <tr>
-    <td>DELETE</td>
-    <td><code>/api/guests/:id</code></td>
-    <td>Delete guest</td>
-  </tr>
-</table>
-
-<h3>Bookings Endpoints</h3>
-
-<table>
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/bookings</code></td>
-    <td>Get all bookings (with pagination)</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/bookings?status=confirmed</code></td>
-    <td>Filter bookings by status</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td><code>/api/bookings/:id</code></td>
-    <td>Get single booking by ID</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td><code>/api/bookings</code></td>
-    <td>Create new booking (with availability check)</td>
-  </tr>
-  <tr>
-    <td>PUT</td>
-    <td><code>/api/bookings/:id</code></td>
-    <td>Update booking</td>
-  </tr>
-  <tr>
-    <td>DELETE</td>
-    <td><code>/api/bookings/:id</code></td>
-    <td>Delete booking</td>
-  </tr>
-</table>
-
-<hr>
-
-<h2>Testing with Postman</h2>
 
 <h3>Sample Request Examples</h3>
 
@@ -970,146 +746,6 @@ npm run seed
 # 3. Check firewall/antivirus settings
 </pre>
 
-<hr>
-
-<h2>NPM Scripts</h2>
-
-<table>
-  <tr>
-    <th>Script</th>
-    <th>Command</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>npm start</code></td>
-    <td><code>node src/app.js</code></td>
-    <td>Start server (production)</td>
-  </tr>
-  <tr>
-    <td><code>npm run dev</code></td>
-    <td><code>nodemon src/app.js</code></td>
-    <td>Start with auto-reload (development)</td>
-  </tr>
-  <tr>
-    <td><code>npm run seed</code></td>
-    <td><code>node scripts/seed.js</code></td>
-    <td>Populate database with sample data</td>
-  </tr>
-</table>
-
-<hr>
-
-<h2>Deployment Options</h2>
-
-<h3>Deploy to Render (Free)</h3>
-
-<ol>
-  <li>Create account at <a href="https://render.com">Render.com</a></li>
-  <li>Click "New +" → "Web Service"</li>
-  <li>Connect your GitHub repository</li>
-  <li>Configure:
-    <ul>
-      <li><b>Name:</b> hotel-management-api</li>
-      <li><b>Environment:</b> Node</li>
-      <li><b>Build Command:</b> <code>npm install</code></li>
-      <li><b>Start Command:</b> <code>npm start</code></li>
-    </ul>
-  </li>
-  <li>Add environment variables:
-    <ul>
-      <li><code>MONGO_URI</code>: Your MongoDB Atlas connection string</li>
-      <li><code>NODE_ENV</code>: production</li>
-    </ul>
-  </li>
-  <li>Click "Create Web Service"</li>
-</ol>
-
-<h3>Deploy to Railway (Free)</h3>
-
-<ol>
-  <li>Create account at <a href="https://railway.app">Railway.app</a></li>
-  <li>Click "New Project" → "Deploy from GitHub repo"</li>
-  <li>Select your repository</li>
-  <li>Add environment variables in "Variables" tab</li>
-  <li>Railway will auto-deploy</li>
-</ol>
-
-<hr>
-
-<h2>Dependencies</h2>
-
-<ul>
-  <li><b>express</b> — Web application framework</li>
-  <li><b>mongoose</b> — MongoDB object modeling tool</li>
-  <li><b>dotenv</b> — Environment variable management</li>
-  <li><b>cors</b> — Cross-Origin Resource Sharing middleware</li>
-  <li><b>morgan</b> — HTTP request logger</li>
-  <li><b>nodemon</b> — Development auto-restart utility</li>
-</ul>
-
-<hr>
-
-<h2>Tips</h2>
-
-<ul>
-  <li>Always run <code>npm run seed</code> after setting up to populate test data</li>
-  <li>Use Postman collections to save and organize your API tests</li>
-  <li>Keep your <code>.env</code> file secure and never commit it to GitHub</li>
-  <li>Check MongoDB Atlas dashboard to verify data is being saved correctly</li>
-  <li>Use query parameters for filtering: <code>?status=available&type=suite</code></li>
-  <li>Test double-booking prevention by creating overlapping bookings</li>
-</ul>
-
-<hr>
-
-<h2>Grading Criteria Compliance</h2>
-
-<table>
-  <tr>
-    <th>Criteria</th>
-    <th>Weight</th>
-    <th>Status</th>
-  </tr>
-  <tr>
-    <td>Working API & Hosted DB</td>
-    <td>30%</td>
-    <td>✅ Complete</td>
-  </tr>
-  <tr>
-    <td>CRUD Correctness & Status Codes</td>
-    <td>30%</td>
-    <td>✅ Complete</td>
-  </tr>
-  <tr>
-    <td>Data Model Design & Validation</td>
-    <td>30%</td>
-    <td>✅ Complete + Extra (relationships)</td>
-  </tr>
-  <tr>
-    <td>Documentation</td>
-    <td>10%</td>
-    <td>✅ Complete</td>
-  </tr>
-  <tr>
-    <td>Code Structure & Cleanliness</td>
-    <td>10%</td>
-    <td>✅ Complete</td>
-  </tr>
-</table>
-
-<h3>Extra Features Implemented:</h3>
-<ul>
-  <li>✅ Room availability checks for date ranges</li>
-  <li>✅ Relationship endpoints (guest bookings, room history)</li>
-  <li>✅ Double-booking prevention</li>
-  <li>✅ Cascade delete protection</li>
-  <li>✅ Automatic price calculation</li>
-  <li>✅ Advanced filtering and search</li>
-</ul>
-
-<hr>
-
-<h2>License</h2>
 
 <p>
 This project is intended for educational purposes as part of a web development course.  
