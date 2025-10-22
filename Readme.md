@@ -5,7 +5,7 @@ A full RESTful API for hotel administration created with Node.js, Express, and M
 </p>
 
 # 🌐 Base URL
-https://hotel-management-4-hwal.onrender.com
+https://hotel-management-7-9x9s.onrender.com
 
 
 
@@ -29,11 +29,11 @@ https://hotel-management-4-hwal.onrender.com
 
 # 🧪 Sample Requests
 ## ➤ Get All Rooms
-GET https://hotel-management-3-eooh.onrender.com/api/rooms
+GET https://hotel-management-7-9x9s.onrender.com/api/rooms
 
 ## ➤ Create New Rooms
 
-POST https://hotel-management-3-eooh.onrender.com/api/rooms
+POST https://hotel-management-7-9x9s.onrender.com/api/rooms
 Body:
 
 {
@@ -45,7 +45,7 @@ Body:
 
 ## ➤ Create New Guest
 
-POST https://hotel-management-3-eooh.onrender.com/api/guests
+POST https://hotel-management-7-9x9s.onrender.com/api/guests
 Body:
 
 {
@@ -56,7 +56,7 @@ Body:
 
 ## ➤ Create New Booking
 
-POST https://hotel-management-3-eooh.onrender.com/api/bookings
+POST https://hotel-management-7-9x9s.onrender.com/api/bookings
 
 Body:
 {
