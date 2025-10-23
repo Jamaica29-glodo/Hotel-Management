@@ -43,6 +43,9 @@ Body:
   "status": "available"
 }
 
+## postman for put
+ "occupied"
+ 
 ## ➤ Create New Guest
 
 POST https://hotel-management-7-9x9s.onrender.com/api/guests
@@ -54,6 +57,9 @@ Body:
   "phone": "09123456789"
 }
 
+## Postman for put
+ "09987654321"
+ 
 ## ➤ Create New Booking
 
 POST https://hotel-management-7-9x9s.onrender.com/api/bookings
@@ -67,7 +73,8 @@ Body:
   "status": "booked"
 }
 
-
+## postman for put
+"checked-in"
 
 <hr>
 
